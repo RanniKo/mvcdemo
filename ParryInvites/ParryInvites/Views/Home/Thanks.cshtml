@@ -1,0 +1,51 @@
+﻿@model ParryInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+    <style>
+        body{background-color: #F1F1F1;}
+    </style>
+</head>
+<body>
+    @{ //아래 이 코드는 MVC 패턴과 부합하진 않음
+       //보통 액션 메서드에서 구현해야하는 코드
+        try
+        {
+            WebMail.SmtpServer = "smtp.example.com";
+            WebMail.SmtpPort = 587;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "mySmtpName";
+            WebMail.Password = "mySmtpPWD";
+            WebMail.From = "rsvp@example.com";
+            WebMail.Send("party-host@example.com", "RSVP Notification", Model.Name + " is " + ((Model.WillAttend ?? false) ? "" : "not") + "attending");
+        }
+        catch(Exception)
+        {
+            @:<b>Sorry - we couldn't send the email to confirm your RSVP.</b>
+        }
+    }
+    <div class="text-center"> 
+        <h1>Thank you. @Model.Name!</h1>
+        <div class="lead">
+            @if (Model.WillAttend == true)
+            {
+                @:It's great that you're coming. The drinks are already in the fridge!
+            }
+            else
+            {
+                @:Sorry to hear that you can't make it. but thanks for letting us know.
+            }
+        </div>
+    </div>
+</body>
+</html>
