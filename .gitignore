@@ -3,3 +3,10 @@ ParryInvites/ParryInvites/bin/
 ParryInvites/ParryInvites/Web.Debug.config
 ParryInvites/ParryInvites/Web.Release.config
 ParryInvites/.vs/config/applicationhost.config
+EssentialTools/.vs/config/applicationhost.config
+EssentialTools/EssentialTools.Tests/obj/
+EssentialTools/EssentialTools/obj/
+EssentialTools/EssentialTools/bin/
+EssentialTools/EssentialTools.Tests/bin/
+EssentialTools/EssentialTools/Web.Debug.config
+EssentialTools/EssentialTools/Web.Release.config
